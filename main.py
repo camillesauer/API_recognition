@@ -1,6 +1,5 @@
 import spacy
 from spacytextblob.spacytextblob import SpacyTextBlob
-import requests
 from fastapi import FastAPI
 
 app = FastAPI()
