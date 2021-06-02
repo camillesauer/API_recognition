@@ -3,7 +3,6 @@ from spacytextblob.spacytextblob import SpacyTextBlob
 import requests
 from fastapi import FastAPI
 
-
 app = FastAPI()
 
 def fonction_nlp(user_input):
@@ -17,7 +16,7 @@ def fonction_nlp(user_input):
     return {'Polarity:': round(doc._.polarity, 2), 'Subjectivity:': round(doc._.subjectivity, 2)}
 
 
-@app.get("/test")
-async def root():
-    return {"message": fonction_nlp()}
+@app.get("/{user_input}")
+async def root(user_input):
+    return fonction_nlp(user_input)
 
